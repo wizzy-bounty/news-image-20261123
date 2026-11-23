@@ -1095,8 +1095,11 @@ def main():
         write_png(os.path.join(outdir, 'entry.png'), W, H, final)
     except OSError:
         pass
-    n = write_png(os.path.join(os.getcwd(), 'entry.png'), W, H, final)
-    print('entry.png written:', n, 'bytes')
+    try:
+        n = write_png(os.path.join(os.getcwd(), 'entry.png'), W, H, final)
+        print('entry.png written:', n, 'bytes')
+    except OSError:
+        pass
 
 
 if __name__ == '__main__':
